@@ -1,0 +1,62 @@
+body {
+    background-color: #f3f0ff;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 1000px;
+    text-align: center;
+}
+
+.controls {
+    margin-bottom: 30px;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 25px;
+    background: #6c5ce7;
+    color: white;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #a29bfe;
+    transform: scale(1.05);
+}
+
+.playlist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.song-card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    text-align: left;
+    border-top: 5px solid #6c5ce7;
+    animation: appear 0.5s ease-out; /* Виліт картки */
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.badge {
+    font-size: 10px;
+    background: #eee;
+    padding: 3px 8px;
+    border-radius: 10px;
+    text-transform: uppercase;
+}

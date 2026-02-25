@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your BTS Playlist Creator</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style">
 </head>
 <header>
     <h1>BTS Playlist Creator</h1>
@@ -16,3 +16,22 @@
         </ul>
     </nav>
 </header>
+<body>
+    <div class="app-container">
+    <h1>Welcome to Your BTS Playlist Creator!</h1>
+    <p>Discover your personalized BTS playlist based on your music preferences.</p>
+    <img src="bts.jpg">
+    <div class="controls">
+            <button id="surpriseBtn">Surprise Me!</button>
+            <button id="clearBtn"> Clear </button>
+        </div>
+    <div id="playlistDisplay" class="playlist-grid">
+        </div>
+    <button onclick="createPlaylist()">Create My Playlist</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+<footer>
+    <p>&copy; 2026 Your BTS Playlist Creator. All rights reserved.</p>      
+</footer>
+</html>

@@ -1,0 +1,463 @@
+const btsData = [
+    {
+        artist: "BTS",
+        type: "Group",
+        songs :[  
+            {title : "Dynamite", releaseDate: "2020-08-21", album: "BE"},
+            {title : "Butter", releaseDate: "2021-05-21", album: "Butter"},
+            {title : "Permission to Dance", releaseDate: "2021-07-09", album: "Butter"},
+            {title : "Life Goes On", releaseDate: "2020-11-20", album: "BE"},
+            {title : "Fake Love", releaseDate: "2018-05-18", album: "Love Yourself: Tear"},
+            {title : "Blood Sweat & Tears", releaseDate: "2016-10-10", album: "Wings"},   
+            {title : "Spring Day", releaseDate: "2017-02-13", album: "You Never Walk Alone"},
+            {title : "Fire", releaseDate: "2016-05-02", album: "The Most Beautiful Moment in Life: Young Forever"},
+            {title : "Dope", releaseDate: "2015-09-08", album: "The Most Beautiful Moment in Life, Part 1"},    
+            {title : "I Need U", releaseDate: "2015-04-29", album: "The Most Beautiful Moment in Life, Part 1"},
+            {title : "Run", releaseDate: "2015-11-30", album: "The Most Beautiful Moment in Life, Part 2"},
+            {title : "Not Today", releaseDate: "2017-02-20", album: "You Never Walk Alone"},
+            {title : "Save Me", releaseDate: "2016-05-22", album: "The Most Beautiful Moment in Life: Young Forever"},
+            {title : "Anpanman", releaseDate: "2018-09-18", album: "Love Yourself: Answer"},
+            {title : "Go Go", releaseDate: "2017-02-13", album: "You Never Walk Alone"},
+            {title : "Euphoria", releaseDate: "2018-04-05", album: "Love Yourself: Answer"},
+            {title : "Serendipity", releaseDate: "2017-09-08", album: "Love Yourself: Her"},
+            {title : "Singularity", releaseDate: "2018-05-07", album: "Love Yourself: Tear"},
+            {title : "Magic Shop", releaseDate: "2018-02-13", album: "Love Yourself: Tear"},
+            {title : "Airplane pt.2", releaseDate: "2018-02-13", album: "Love Yourself: Tear"}, 
+            {title : "IDOL", releaseDate: "2018-08-24", album: "Love Yourself: Answer"},     
+            {title : "On", releaseDate: "2020-02-21", album: "Map of the Soul: 7"},
+            {title : "Black Swan", releaseDate: "2020-01-17", album: "Map of the Soul: 7"},
+            {title : "ON (feat. Sia)", releaseDate: "2020-02-28", album: "Map of the Soul: 7"},
+            {title : "Dionysus", releaseDate: "2019-11-30", album: "Map of the Soul: Persona"},    
+            {title : "Jamais Vu", releaseDate: "2019-11-18", album: "Map of the Soul: Persona"},
+            {title : "Inner Child", releaseDate: "2020-02-21", album: "Map of the Soul: 7"}, 
+            {title : "Stay Gold", releaseDate: "2020-06-19", album: "Map of the Soul: 7"},
+            {title : "We Are Bulletproof: The Eternal", releaseDate: "2020-02-21", album: "Map of the Soul: 7"},    
+            {title : "Friends", releaseDate: "2020-02-21", album: "Map of the Soul: 7"},
+            {title : "Moon", releaseDate: "2020-02-21", album: "Map of the Soul: 7"},
+            {title : "Respect", releaseDate: "2020-02-21", album: "Map of the Soul: 7"},    
+            {title : "We Are Bulletproof: The Eternal", releaseDate: "2020-02-21", album: "Map of the Soul: 7"},
+            {title : "00:00 (Zero O'Clock)", releaseDate: "2020-02-21", album: "Map of the Soul: 7"},
+            {title : "Louder than bombs", releaseDate: "2020-02-21", album: "Map of the Soul: 7"},
+            {title : "UGH!", releaseDate: "2020-02-21", album: "Map of the Soul: 7"},
+            {title : "Cypher pt.4", releaseDate: "2017-11-17", album: "Love Yourself: Answer"},
+            {title : "Ddaeng", releaseDate: "2018-12-07", album: "Love Yourself: Answer"},
+            {title : "Outro: Tear", releaseDate: "2018-05-18", album: "Love Yourself: Tear"},
+            {title : "Outro: Her", releaseDate: "2017-09-18", album: "Love Yourself: Her"},
+            {title : "Outro: Ego", releaseDate: "2020-02-21", album: "Map of the Soul: 7"},
+            {title : "Outro: Persona", releaseDate: "2019-04-12", album: "Map of the Soul: Persona"},
+            {title : "Outro: Wings", releaseDate: "2016-10-10", album: "Wings"},    
+            {title : "Cypher pt.3", releaseDate: "2016-11-18", album: "Wings"},
+            {title : "Cypher pt.2", releaseDate: "2015-11-30", album: "The Most Beautiful Moment in Life, Part 2"},
+            {title : "Cypher pt.1", releaseDate: "2015-04-29", album: "The Most Beautiful Moment in Life, Part 1"},
+            {title : "Intro: Persona", releaseDate: "2019-04-12", album: "Map of the Soul: Persona"},
+            {title : "Boy With Luv (feat. Halsey)", releaseDate: "2019-04-12", album: "Map of the Soul: Persona"},
+            {title : "Make It Right (feat. Lauv)", releaseDate: "2019-10-18", album: "Map of the Soul: Persona"},
+            {title : "My Universe (feat. Coldplay)", releaseDate: "2019-11-18", album: "Map of the Soul: Persona"},
+            {title : "Just One Day", releaseDate: "2014-09-29", album: "Skool Luv Affair"},
+            {title : "No More Dream", releaseDate: "2013-06-13", album: "2 Cool 4 Skool"},
+            {title : "We On", releaseDate: "2013-06-13", album: "2 Cool 4 Skool"},
+            {title : "N.O", releaseDate: "2013-09-11", album: "2 Cool 4 Skool"},
+            {title : "Attack on Bangtan", releaseDate: "2013-09-11", album: "2 Cool 4 Skool"},
+            {title : "Pied Piper", releaseDate: "2017-09-18", album: "Love Yourself: Answer"},
+            {title : "Go Go", releaseDate: "2017-02-13", album: "You Never Walk Alone"},
+            {title : "Blue & Grey", releaseDate: "2020-11-20", album: "BE"},
+            {title : "Telepathy", releaseDate: "2020-11-20", album: "BE"},
+            {title : "Silver Spoon", releaseDate: "2016-10-10", album: "Wings"},
+            {title : "Dis-ease", releaseDate: "2020-11-20", album: "BE"},
+            {title : "Danger", releaseDate: "2014-09-29", album: "Skool Luv Affair"},
+            {title : "Dimple", releaseDate: "2018-09-18", album: "Love Yourself: Answer"},
+            {title : "Trivia: Seesaw", releaseDate: "2018-09-18", album: "Love Yourself: Answer"},
+            {title : "For Youth", releaseDate: "2019-04-12", album: "Map of the Soul: Persona"},
+            {title : "Film out", releaseDate: "2021-11-20", album: "BE"},
+            {title : "Stay", releaseDate: "2022-02-21", album: "BE"},
+            {title : "Yet To Come (The Most Beautiful Moment)", releaseDate: "2022-06-10", album: "Proof"},
+            {title : "Best of Me", releaseDate: "2017-09-18", album: "Love Yourself: Answer"},
+            {title : "Airplane pt.2", releaseDate: "2018-02-13", album: "Love Yourself: Tear"},
+            {title : "Lights", releaseDate: "2019-06-07", album: "Map of the Soul: Persona"},
+            {title : "MIC Drop (Steve Aoki Remix)", releaseDate: "2017-11-24", album: "Love Yourself: Answer"},
+            {title : "Don`t Leave Me", releaseDate: "2017-09-18", album: "Love Yourself: Answer"},
+            {title : "Your Eyes Tell", releaseDate: "2018-09-18", album: "Love Yourself: Answer"},
+            {title : "Crystal Snow", releaseDate: "2017-12-13", album: "Love Yourself: Answer"},
+            {title : "The Truth Untold (feat. Steve Aoki)", releaseDate: "2018-02-13", album: "Love Yourself: Tear"},
+            {title : "Love Maze", releaseDate: "2018-02-13", album: "Love Yourself: Tear"},
+            {title : "So What", releaseDate: "2018-09-18", album: "Love Yourself: Answer"},
+            {title : "Hold Me Tight", releaseDate: "2015-04-29", album: "The Most Beautiful Moment in Life, Part 1"},
+            {title : "Autumn Leaves", releaseDate: "2016-11-18", album: "Wings"},
+            {title : "Butterfly", releaseDate: "2015-11-30", album: "The Most Beautiful Moment in Life, Part 2"},
+            {title : "Lost", releaseDate: "2016-11-18", album: "Wings"},
+            {title : "Young Forever", releaseDate: "2016-11-18", album: "Wings"},
+            {title : "Converse High", releaseDate: "2016-11-18", album: "Wings"},
+            {title : "Moving On", releaseDate: "2016-11-18", album: "Wings"},
+            {title : "House of Cards", releaseDate: "2016-11-18", album: "Wings"},
+            {title : "Run", releaseDate: "2015-11-30", album: "The Most Beautiful Moment in Life, Part 2"},
+            {title : "Love is Not Over", releaseDate: "2016-11-18", album: "Wings"},
+            {title : "Intro: Boy Meets Evil", releaseDate: "2016-10-10", album: "Wings"},
+            {title : "Begin", releaseDate: "2016-10-10", album: "Wings"},
+            {title : "Lie", releaseDate: "2016-10-10", album: "Wings"},
+            {title : "Stigma", releaseDate: "2016-10-10", album: "Wings"},
+            {title : "First Love", releaseDate: "2016-10-10", album: "Wings"},
+            {title : "Reflection", releaseDate: "2016-10-10", album: "Wings"},
+            {title : "MAMA", releaseDate: "2013-06-13", album: "2 Cool 4 Skool"},
+            {title : "Awake", releaseDate: "2016-10-10", album: "Wings"},
+            {title : "Lost", releaseDate: "2016-11-18", album: "Wings"},
+            {title : "Am I Wrong", releaseDate: "2016-11-18", album: "Wings"},
+            {title : "21st Century Girl", releaseDate: "2016-11-18", album: "Wings"},
+            {title : "2! 3!", releaseDate: "2016-11-18", album: "Wings"},
+            {title : "Microcosmos", releaseDate: "2019-04-12", album: "Map of the Soul: Persona"},
+            {title : "Home", releaseDate: "2019-04-12", album: "Map of the Soul: Persona"},
+            {title : "Interlude: Shadow", releaseDate: "2020-02-21", album: "Map of the Soul: 7"},
+            {title : "Inner Child", releaseDate: "2020-02-21", album: "Map of the Soul: 7"},
+            {title : "Intro: What Am I To Do", releaseDate: "2020-02-21", album: "Map of the Soul: 7"},
+            {title : "War of Hormone", releaseDate: "2014-09-29", album: "Skool Luv Affair"},
+            {title : "Hip Hop Lover", releaseDate: "2014-09-29", album: "Skool Luv Affair"},
+            {title : "Let Me Know", releaseDate: "2014-09-29", album: "Skool Luv Affair"},
+            {title : "Rain", releaseDate: "2014-09-29", album: "Skool Luv Affair"},
+            {title : "Interlude: What Are You Doing", releaseDate: "2020-02-21", album: "Map of the Soul: 7"},
+            {title : "Could You Turn Off Your Phone", releaseDate: "2020-02-21", album: "Map of the Soul: 7"},
+            {title : "Embarrassed", releaseDate: "2020-02-21", album: "Map of the Soul: 7"},
+            {title : "24/7", releaseDate: "2020-02-21", album: "Map of the Soul: 7"},
+            {title : "Look Here", releaseDate: "2020-02-21", album: "Map of the Soul: 7"},
+            {title : "Outro: Do You Think It Makes Sense?", releaseDate: "2020-02-21", album: "Map of the Soul: 7"},
+            {title : "Like", releaseDate: "2020-02-21", album: "Map of the Soul: 7"},
+            {title : "Spine Breaker", releaseDate: "2020-02-21", album: "Map of the Soul: 7"},
+            {title : "Jump", releaseDate: "2020-02-21", album: "Map of the Soul: 7"},
+            {title : "Tomorrow", releaseDate: "2020-02-21", album: "Map of the Soul: 7"},
+            {title : "Outro: Propose", releaseDate: "2020-02-21", album: "Map of the Soul: 7"},
+            {title : "Where You From", releaseDate: "2020-02-21", album: "Map of the Soul: 7"},
+            {title : "Skit: Soulmate", releaseDate: "2020-02-21", album: "Map of the Soul: 7"},
+            {title : "Savage Love", releaseDate: "2020-10-02", album: "Map of the Soul: 7"},
+            {title : "Fly To My Room", releaseDate: "2020-11-20", album: "BE"},
+            {title : "Dream Glow", releaseDate: "2020-11-20", album: "BE"},
+            {title : "Run BTS", releaseDate: "2022-06-10", album: "Proof"},
+            {title : "DNA", releaseDate: "2017-09-18", album: "Love Yourself: Answer"},
+            {title : "Blanket Kick", releaseDate: "2020-02-21", album: "Map of the Soul: 7"},
+            {title : "A Brand New Day (feat. Zara Larsson)", releaseDate: "2019-04-12", album: "Map of the Soul: Persona"},
+            {title : "Bad Decisions(feat. benny blanco, Snoop Dogg", releaseDate: "2022-08-05", album: "BTS, The Best"},
+            {title : "Waste It On Me (feat. Steve Aoki)", releaseDate: "2018-02-13", album: "Love Yourself: Tear"}, 
+            {title : "I`m Fine", releaseDate: "2016-11-18", album: "Wings"},
+            {title : "Heartbeat", releaseDate: "2019-11-18", album: "Wings"},
+            {title : "Sea", releaseDate: "2019-11-18", album: "Wings"},
+            {title : "TOO MUCH", releaseDate: "2023-10-20", album: "Wings"},
+
+    ]
+        
+    },
+   {
+    artist: "Jean Jung Kook(JK)",
+    type: "Solo",
+    songs :[
+        {title : "Euphoria", releaseDate: "2018-04-05", album: "Love Yourself: Answer"},
+        {title : "My Time", releaseDate: "2020-02-21", album: "Map of the Soul: 7"},
+        {title : "Stay Alive (feat. Suga)", releaseDate: "2022-01-14", album: "BTS, The Best"},
+        {title : "Still With You", releaseDate: "2020-06-13", album: "BTS, The Best"},
+        {title : "Standing Next To You", releaseDate: "2022-02-11", album: "Golden"},
+        {title : "Seven (feat. Latto)", releaseDate: "2023-07-14", album: "Golden"},
+        {title : "3D (feat. Jack Harlow)", releaseDate: "2023-07-14", album: "Golden"},
+        {title : "Closer to You", releaseDate: "2023-07-14", album: "Golden"},
+        {title : "Yes or No", releaseDate: "2023-11-03", album: "Golden"},
+        {title : "Please Don`t Change(feat. DJ Snake)", releaseDate: "2023-11-03", album: "Golden"},
+        {title : "Hate", releaseDate: "2023-11-03", album: "Golden"},
+        {title : "Somebody", releaseDate: "2023-11-03", album: "Golden"},
+        {title : "Too Sad To Dance", releaseDate: "2023-11-03", album: "Golden"},
+        {title : "Shot Glass of Tears", releaseDate: "2020-11-03", album: "Golden"},
+        {title : "My You", releaseDate: "2022-06-12", album: "Golden"},
+        {title : "Left and Right(feat. Charlie Puth) ", releaseDate: "2022-11-24", album: "BTS, The Best"},
+        {title : "Dreamers" , releaseDate: "2022-11-20", album: "BTS, The Best"},
+        {title : "Never Let Go", releaseDate: "2024-06-07", album: "Never Let Go"},
+
+    ]
+   },
+   {
+    artist: "Min Yoongi (SUGA)(Agust D)",
+    type: "Solo",
+    songs :[   
+        {title : "Agust D", releaseDate: "2016-08-15", album: "Agust D"},
+        {title : "Give It To Me", releaseDate: "2016-08-15", album: "Agust D"},
+        {title : "Skit: Dream, Reality", releaseDate: "2016-08-15", album: "Agust D"},
+        {title : "724148", releaseDate: "2016-08-15", album: "Agust D"},
+        {title : "The Last", releaseDate: "2016-08-15", album: "Agust D"},
+        {title : "Tony Montana", releaseDate: "2016-08-15", album: "Agust D"},  
+        {title : "Interlude: Set Me Free", releaseDate: "2020-05-22", album: "D-2"},
+        {title : "Daechwita", releaseDate: "2020-05-22", album: "D-2"},
+        {title : "What Do You Think?", releaseDate: "2020-05-22", album: "D-2"},
+        {title : "Strange", releaseDate: "2020-05-22", album: "D-2"},
+        {title : "Interlude: Shadow", releaseDate: "2020-05-22", album: "D-2"},
+        {title : "Burn It", releaseDate: "2020-05-22", album: "D-2"},
+        {title : "Interlude: Set Me Free Pt.2", releaseDate: "2020-05-22", album: "D-2"},
+        {title : "Blueberry Eyes (feat. MAX)", releaseDate: "2020-05-22", album: "D-2"},
+        {title : "People", releaseDate: "2020-05-22", album: "D-2"},
+        {title : "Snow Flower (feat. MAX)", releaseDate: "2020-05-22", album: "D-2"},
+        {title : "Interlude: My Time Is Now", releaseDate: "2020-05-22", album: "D-2"},
+        {title : "Interlude: Dream, Reality", releaseDate: "2016-08-15", album: "Agust D"},
+        {title : "That That (feat.Psy)", releaseDate: "2022-06-24", album: "D-2"},
+        {title : "Haegeum (feat. J-HOPE)", releaseDate: "2022-06-24", album: "D-2"},
+        {title : "Stay Alive (feat. Jungkook)", releaseDate: "2022-01-14", album: "BTS, The Best"},
+        {title : "Girl Of My Dreams", releaseDate: "2021-12-10", album: "D-2"},
+        {title : "eight (feat. IU)", releaseDate: "2020-05-22", album: "D-2"},
+        {title : "SUGA`s Interlude (feat. Halsey)", releaseDate: "2020-05-22", album: "D-2"},
+        {title : "People pt.2 (feat. IU)", releaseDate: "2020-05-22", album: "D-2"},
+        {title : "D-day", releaseDate: "2023-05-15", album: "D-Day"},
+        {title : "AMYGDALA", releaseDate: "2023-05-15", album: "D-Day"},
+        {title : "Huh? (feat. J-HOPE)", releaseDate: "2023-05-15", album: "D-Day"},
+        {title : "SDL", releaseDate: "2023-05-15", album: "D-Day"},
+        {title : "Polar Night", releaseDate: "2023-05-15", album: "D-Day"},
+        {title : "Interlude: Dawn", releaseDate: "2023-05-15", album: "D-Day"},
+        {title : "Snooze(feat.Ryung)", releaseDate: "2023-05-15", album: "D-Day"},
+
+    
+    ]},
+{
+   artist: "Kim Namjoon (RM)",
+    type: "Solo",
+    songs :[
+        {title : "Voice", releaseDate: "2015-09-03", album: "RM"},
+        {title : "Awakening", releaseDate: "2015-09-03", album: "RM"},
+        {title : "Do You", releaseDate: "2015-09-03", album: "RM"},
+        {title : "Monster", releaseDate: "2015-09-03", album: "RM"},
+        {title : "Throw Away", releaseDate: "2015-09-03", album: "RM"},
+        {title : "Joke", releaseDate: "2015-09-03", album: "RM"},
+        {title : "God Rap", releaseDate: "2015-09-03", album: "RM"},
+        {title : "Rush (feat. Krizz Kaliko)", releaseDate: "2015-09-03", album: "RM"},
+        {title : "Life", releaseDate: "2015-09-03", album: "RM"},
+        {title : "Adrift", releaseDate: "2015-09-03", album: "RM"},
+        {title : "I believe", releaseDate: "2015-09-03", album: "RM"},
+        {title : "Tokyo", releaseDate: "2018-10-23", album: "Mono"},
+        {title : "Seoul", releaseDate: "2018-10-23", album: "Mono"},
+        {title : "Moonchild", releaseDate: "2018-10-23", album: "Mono"},
+        {title : "Badbye (feat. eAeon)", releaseDate: "2018-10-23", album: "Mono"},
+        {title : "Uhgood (feat. Lil Cherry)", releaseDate: "2018-10-23", album: "Mono"},
+        {title : "Everythingoes (feat. NELL)", releaseDate: "2018-10-23", album: "Mono"},
+        {title : "Forever Rain", releaseDate: "2018-10-23", album: "Mono"},
+        {title : "All Night", releaseDate: "2019-06-29", album: "Mono"},
+        {title : "Rap Monster", releaseDate: "2015-05-20", album: "RM"},
+        {title : "Bicycle", releaseDate: "2015-05-20", album: "RM"},
+        {title : "K`hawah", releaseDate: "2015-05-20", album: "RM"},
+        {title : "SEXY NUKIM(feat. Balming Tiger)", releaseDate: "2022-10-28", album: "RM"},
+        {title : "Wild Flower (feat. youjeen)", releaseDate: "2022-10-28", album: "Indigo"},
+        {title : "Yun (feat. Erykah Badu)", releaseDate: "2022-10-28", album: "Indigo"},
+        {title : "Still Life (feat. Anderson .Paak)", releaseDate: "2022-10-28", album: "Indigo"},
+        {title : "All Day(feat. Tablo)", releaseDate: "2022-10-28", album: "Indigo"},
+        {title : "Forg_tful (feat. Kim Sawol)", releaseDate: "2022-10-28", album: "Indigo"},
+        {title : "Closer (feat.Paul Blanco, Mahaila)", releaseDate: "2022-10-28", album: "Indigo"},
+        {title : "Change pt.2", releaseDate: "2022-10-28", album: "Indigo"},
+        {title : "Lonely (feat. Younha)", releaseDate: "2022-10-28", album: "Indigo"},
+        {title : "Hectic (feat. Colde)", releaseDate: "2020-10-28", album: "Indigo"},
+        {title : "No.2(feat. Park Ji Yoon)",releaseDate: "2015-10-28", album: "Indigo"},
+        {title : "Favorite Girl (feat. Warren G)", releaseDate: "2015-10-28", album: "RM"},
+        {title : "Smoke Sprite", releaseDate: "2023-03-14", album: "Indigo"},
+        {title : "Don`t ever say love me (feat.Colde)", releaseDate: "2023-03-14", album: "Indigo"},
+        {title : "Come back to me", releaseDate: "2024-05-10", album: "Right Place, Wrong Person"},
+        {title : "Right Place, Wrong Person", releaseDate: "2024-05-10", album: "Right Place, Wrong Person"},
+        {title : "Nuts", releaseDate: "2024-05-10", album: "Right Place, Wrong Person"},
+        {title : "out of love", releaseDate: "2024-05-10", album: "Right Place, Wrong Person"},
+        {title : "Domadachi(feat. Little Simz)", releaseDate: "2024-05-10", album: "Right Place, Wrong Person"},
+        {title : "Groin", releaseDate: "2024-05-10", album: "Right Place, Wrong Person"},
+        {title : "Heaven", releaseDate: "2024-05-10", album: "Right Place, Wrong Person"},
+        {title : "LOST!", releaseDate: "2024-05-10", album: "Right Place, Wrong Person"},
+        {title : "Around the world in a day(feat. Moses Sumney", releaseDate: "2024-05-10", album: "Right Place, Wrong Person"},
+        {title : "Neva Play(feat. Megan Thee Stallion)", releaseDate: "2024-09-06", album: "Right Place, Wrong Person"},
+        {title : "Stop to Rain (feat. TABLO)", releaseDate: "2024-09-06", album: "Right Place, Wrong Person"}
+       
+
+]},
+
+{
+    artist: "Kim Seokjin (JIN)",
+    type: "Solo",
+    songs :[
+        {title : "ABYSS", releaseDate: "2020-11-20", album: "BE"},
+        {title : "Super Tuna", releaseDate: "2021-12-24", album: "BE"},
+        {title : "Yours", releaseDate: "2021-11-08", album: "BTS, The Best"},
+        {title : "It`s Definitely You (feat. V)", releaseDate: "2016-09-08", album: "Love Yourself: Her"},
+        {title : "The Astronaut", releaseDate: "2022-10-28", album: "The Astronaut"},
+        {title : "I`ll Be There", releaseDate: "2024-10-25", album: "Happy"},
+        {title : "Running Wild", releaseDate: "2024-11-15", album: "Happy"},
+        {title : "Another Love", releaseDate: "2024-11-15", album: "Happy"},
+        {title : "Falling", releaseDate: "2024-11-15", album: "Happy"},
+        {title : "Heart on the Window(feat. WENDY)", releaseDate: "2024-11-15", album: "Happy"},
+        {title : "I will come to you", releaseDate: "2024-11-15", album: "Happy"},
+        {title : "Rope it" , releaseDate: "2024-11-15", album: "Echo"},
+        {title : "School of Tears(feat. SUGA, RM)", releaseDate: "2024-11-15", album: "Echo"},
+        {title : "Adult Child(feat. SUGA,RM)", releaseDate: "2024-11-15", album: "Echo"},
+        {title : "Tonight", releaseDate: "2019-06-15", album: "Echo"},
+        {title : "You`re My", releaseDate: "2019-06-15", album: "Echo"},
+        {title : "Epiphany", releaseDate: "2018-09-18", album: "Love Yourself: Answer"},
+        {title : "Close To You", releaseDate: "2018-09-18", album: "Love Yourself: Answer"},
+        {title : "Echo", releaseDate: "2025-05-25", album: "Echo"},
+        {title : "Don`t Say You Love Me", releaseDate: "2025-05-25", album: "Echo"},
+        {title : "Loser(feat. YENA)", releaseDate: "2025-05-25", album: "Echo"},
+        {title : "Nothing Without Your Love", releaseDate: "2025-05-25", album: "Echo"},
+        {title : "With the clouds", releaseDate: "2025-05-25", album: "Echo"},
+        {title : "Background", releaseDate: "2025-05-25", album: "Echo"},
+        {title : "To Me,Today", releaseDate: "2025-05-25", album: "Echo"},
+
+    ]},
+
+
+    {
+    artist: "Jung Hoseok (J-HOPE)",
+    type: "Solo",
+    songs :[  
+        {title : "Hope World", releaseDate: "2018-03-02", album: "Hope World"},
+        {title : "P.O.P (Piece of Peace) pt.1", releaseDate: "2018-03-02", album: "Hope World"},
+        {title : "Daydream", releaseDate: "2018-03-02", album: "Hope World"},
+        {title : "Base Line", releaseDate: "2018-03-02", album: "Hope World"},
+        {title : "Hangsang (feat. Supreme Boi)", releaseDate: "2018-03-02", album: "Hope World"},
+        {title : "Airplane", releaseDate: "2018-03-02", album: "Hope World"},
+        {title : "Blue Side (Outro)", releaseDate: "2018-03-02", album: "Hope World"},
+        {title : "Chicken Noodle Soup (feat. Becky G)", releaseDate: "2019-09-27", album: "Hope World"},
+        {title : "Arson", releaseDate: "2022-07-15", album: "Jack in the bocks"},
+        {title : "Pandora`s Box", releaseDate: "2022-07-15", album: "Jack in the Box"},
+        {title : "Equal Sign", releaseDate: "2022-07-15", album: "Jack in the Box"},
+        {title : "Music Box", releaseDate: "2022-07-15", album: "Jack in the Box"},
+        {title : "Safety Zone", releaseDate: "2022-07-15", album: "Jack in the Box"},
+        {title : "Future", releaseDate: "2022-07-15", album: "Jack in the Box"},
+        {title : "STOP", releaseDate: "2022-07-15", album: "Jack in the Box"},
+        {title : "What if", releaseDate: "2022-07-15", album: "Jack in the Box"},
+        {title : "Intro: Never Mind", releaseDate: "2022-07-15", album: "Jack in the Box"},
+        {title : "More", releaseDate: "2022-07-15", album: "Jack in the Box"},
+        {title : "Huegum (feat. SUGA)", releaseDate: "2022-06-24", album: "D-2"},
+        {title : "Animal", releaseDate: "2012-06-13", album: "2 Cool 4 Skool"},
+        {title : "Rush Hour", releaseDate: "2022-09-20", album: "Jack in the Box"},
+        {title : "on the Street (feat. J. Cole)", releaseDate: "2023-01-27", album: "Hope On The Street"},
+        {title : "I don`t Know(feat. HUH Yunjin)", releaseDate: "2024-03-29", album: "Hope On The Street"},
+        {title : "I wonder...(feat. Jung Kook)", releaseDate: "2024-03-29", album: "Hope On The Street"},
+        {title : "Neuron", releaseDate: "2024-03-29", album: "Hope On The Street"},
+        {title : "LV Bag (feat. Don Toliver,Pharell Williams)", releaseDate: "2025-02-21", album: "LV Bag"},
+        {title : "Sweet Dreams (feat. Miguel)", releaseDate:"2025-03-07", album: "Charm of HOPE"},
+        {title : "MONA LISA", releaseDate :"2025-02-21", album: "Charm of HOPE"},
+        {title : "Killin' It Girl (feat.GloRilla)", releaseDate: "2025-06-13", album: "Charm of HOPE"},
+        {title : "SPAGHETTI (feat.LE SSERAFIM)", releaseDate: "2025-10-24", album: "SPAGHETTI (feat.LE SSERAFIM)"},
+
+    ]},
+
+    {
+    artist: "Park Jimin (JIMIN)",
+    type: "Solo",
+    songs :[
+        {title : "Like Crazy", releaseDate: "2015-09-03", album: "Face"},
+        {title : "Cristmas Love", releaseDate: "2015-09-03", album: "JIMIN"},
+        {title : "Filter", releaseDate: "2020-02-21", album: "Map of the Soul: 7"},
+        {title : "Vibe(feat. Taeyang)", releaseDate: "2023-03-24", album: "Golden"},
+        {title : "Set Me Free Pt.2", releaseDate: "2023-03-24", album: "Face"},
+        {title : "Face-off", releaseDate: "2023-03-24", album: "Face"},
+        {title : "Alone", releaseDate: "2023-03-24", album: "Face"},
+        {title : "Interlude: Dive", releaseDate: "2023-03-24", album: "Face"},
+        {title : "Letter", releaseDate: "2023-03-24", album: "Face"},
+        {title : "Angel pt.2(feat. Kodak Black,JVKE)", releaseDate: "2023-03-24", album: "Face"},
+        {title : "Closer than This", releaseDate: "2023-12-22", album: "Muse"},
+        {title : "Smeraldo Garden Marching Band(feat.Loco)", releaseDate: "2024-06-28", album: "Muse"},
+        {title : "Who", releaseDate: "2024-07-19", album: "Muse"},
+        {title : "Be Mine", releaseDate: "2024-07-19", album: "Muse"},
+        {title : "Slow Dance(feat. Sofia Carson)", releaseDate: "2024-07-19", album: "Muse"},
+        {title : "Rebirth", releaseDate: "2024-07-19", album: "Muse"},
+        {ttile : "Intrlude: Snowtime", releaseDate: "2024-07-19", album: "Muse"},
+        {title : "Tony Montana (feat. SUGA)", releaseDate: "2024-07-19", album: "Muse"},
+        {title : "Promise", releaseDate: "2024-07-19", album: "Muse"},
+        {title : "Christmas Love", releaseDate: "2015-09-03", album: "JIMIN"},
+
+    ]},
+
+    {
+    artist: "Kim Taehyung (V)",
+    type: "Solo",
+    songs :[    
+        {title : "Snow Flower", releaseDate: "2020-12-24", album: "D-2"},
+        {title : "Sad Song", releaseDate: "2022-01-25", album: "BTS, The Best"},
+        {title : "Its Definitely You (feat. Jin)", releaseDate: "2016-09-08", album: "Love Yourself: Her"},
+        {title : "Cristmas Tree", releaseDate: "2021-12-24", album: "BTS, The Best"},
+        {title : "Rainy Days", releaseDate: "2023-09-08", album: "Layover"},
+        {title : "Love Me Again", releaseDate: "2023-09-08", album: "Layover"},
+        {title : "Blue", releaseDate: "2023-09-08", album: "Layover"},
+        {title : "Slow Dancing", releaseDate: "2023-09-08", album: "Layover"},
+        {title : "For Us", releaseDate: "2023-09-08", album: "Layover"},
+        {title : "Wherver U R(feat. UMI)", releaseDate: "2023-12-30", album: "Layover"},
+        {title : "FRI(END)S", releaseDate: "2024-03-15", album: "Layover"},
+        {title : "Winter Ahead (feat.PARK HYO SHIN)", releaseDate: "2024-11-24", album: "Winter Ahead"},
+        {title : "White Christmas (feat.Bing Crosby)", releaseDate:"2024-12-06", album: "White Chritmas"}
+
+        
+
+]},
+
+];
+
+const musicLibrary = {
+    allArtist: btsData,
+
+    [Symbol.iterator](){
+        let artistIdx =0;
+        let songIdx = 0;
+        return {
+            next : () => {
+                if(artistIdx < this.allArtist.length){
+                    return {done : true};
+    }
+    const currentArtist = this.allArtist[artistIdx];
+    const song = currentArtist.songs[songIdx];
+
+    songIdx++; 
+    if (songIdx >= currentArtist.songs.length) {
+        artistIdx++;
+        songIdx =0;
+    }
+    return {
+        value :{...song, artistName : currentArtist},
+        done: false
+    };
+}
+ 
+        };
+    }
+
+};
+
+for (const track of musicLibrary) {
+    console.log(`Perfoms: ${track.artistName} | Song: ${track.title}`);
+}
+
+
+function smartMixer(data) {
+    const allSongs = [ ...btsData];
+
+    while (true) {
+        const randomIndex = Math.floor(Math.random() * allSongs.length);
+        yield allSongs[randomIndex];
+    }
+}
+const radio = smartMixer(btsData);
+const display = document.getElementById("playlistDisplay");
+
+function renderCard(song) {
+    const card = document.createElement("div");
+    card.className = "song-card";
+    card.innerHTML = `
+    <span class ="badge">${song.artist === "BTS"? "Group" : "Solo"}</span>
+    <h3>${song.title}</h3>
+    <p><strong>Artist:</strong> ${song.artist}</p>
+    <p><strong>Album:</strong> ${song.album}</p>
+    <p><strong>Release Date:</strong> ${song.releaseDate}</p>
+    `;
+    display.prepend(card);
+}
+
+document.getElementById('surpriseBtn').onclick = () => {
+    const nextSong = radio.next().value;
+    renderCard(nextSong);
+};
+
+document.getElementById('searchBtn').onclick = () => {
+    const query = document.getElementById('searchInput').value.toLowerCase();
+    if (!query) return;
+    
+    display.innerHTML = ''; 
+
+    for (const track of musicLibrary) {
+        if (track.album.toLowerCase().includes(query)) {
+            renderCard(track);
+        }
+    }
+};
+document.getElementById('clearBtn').onclick = () => {
+    display.innerHTML = '';
+};
