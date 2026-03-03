@@ -388,9 +388,11 @@ const musicLibrary = {
     [Symbol.iterator](){
         let artistIdx =0;
         let songIdx = 0;
+        const artist = this.allArtist[artistIdx];
+
         return {
             next : () => {
-                if(artistIdx < this.allArtist.length){
+                if(artistIdx >= this.allArtist.length){
                     return {done : true};
     }
     const currentArtist = this.allArtist[artistIdx];
@@ -402,7 +404,7 @@ const musicLibrary = {
         songIdx =0;
     }
     return {
-        value :{...song, artistName : currentArtist},
+        value :{...song, artistName : currentArtist.artist},
         done: false
     };
 }
@@ -417,7 +419,7 @@ for (const track of musicLibrary) {
 }
 
 
-function smartMixer(data) {
+function* smartMixer(data) {
     const allSongs = [ ...btsData];
 
     while (true) {
