@@ -423,15 +423,37 @@ const musicLibrary = {
 function* smartMixer() {
     const allSongs = [ ...musicLibrary];
 
-    while (true) {
+   while (true) {
         const randomIndex = Math.floor(Math.random() * allSongs.length);
         yield allSongs[randomIndex];
     }
-}
+} 
 
 const radio = smartMixer(btsData);
 const display = document.getElementById("playlistDisplay");
 
+async function consumeWithTimeout(iterator, durationInSeconds) {
+    const endTime = Date.now() + (Number(durationInSeconds) * 1000);
+    let count = 0;
+
+    console.log(`--- Starting auto-mode for ${durationInSeconds}s ---`);
+
+    while (Date.now() < endTime) {
+        const { value, done } = await iterator.next();
+
+        if (done) {
+            console.log("--- All tracks processed before timeout ---");
+            break; 
+        }
+
+        console.log(`[${count++}] Added: ${value.title}`);
+        renderCard(value);
+        
+        await new Promise(resolve => setTimeout(resolve, 800));
+    }
+
+    console.log("--- Process finished ---");
+}
 
 
 function renderCard(song) {
