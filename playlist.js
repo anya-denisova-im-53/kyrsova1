@@ -388,7 +388,7 @@ const musicLibrary = {
     [Symbol.iterator](){
         let artistIdx =0;
         let songIdx = 0;
-        const artist = this.allArtist[artistIdx];
+        const artist = this.allArtist;
 
         return {
             next : () => {
@@ -397,6 +397,11 @@ const musicLibrary = {
     }
     const currentArtist = this.allArtist[artistIdx];
     const song = currentArtist.songs[songIdx];
+
+    const trackValue = {...song, 
+        artistName : currentArtist.artist,
+        type : currentArtist.type
+    };
 
     songIdx++; 
     if (songIdx >= currentArtist.songs.length) {
@@ -414,29 +419,30 @@ const musicLibrary = {
 
 };
 
-for (const track of musicLibrary) {
-    console.log(`Perfoms: ${track.artistName} | Song: ${track.title}`);
-}
 
-
-function* smartMixer(data) {
-    const allSongs = [ ...btsData];
+function* smartMixer() {
+    const allSongs = [ ...musicLibrary];
 
     while (true) {
         const randomIndex = Math.floor(Math.random() * allSongs.length);
         yield allSongs[randomIndex];
     }
 }
+
 const radio = smartMixer(btsData);
 const display = document.getElementById("playlistDisplay");
+
+
 
 function renderCard(song) {
     const card = document.createElement("div");
     card.className = "song-card";
+    const badgeClass = song.type === "Group" ? "badge-group" : "badge-solo";
+
     card.innerHTML = `
-    <span class ="badge">${song.artist === "BTS"? "Group" : "Solo"}</span>
+    <span class ="badge"${badgeClass}>${song.type}</span>
     <h3>${song.title}</h3>
-    <p><strong>Artist:</strong> ${song.artist}</p>
+    <p><strong>Artist:</strong> ${song.artistName}</p>
     <p><strong>Album:</strong> ${song.album}</p>
     <p><strong>Release Date:</strong> ${song.releaseDate}</p>
     `;
@@ -452,8 +458,7 @@ document.getElementById('searchBtn').onclick = () => {
     const query = document.getElementById('searchInput').value.toLowerCase();
     if (!query) return;
     
-    display.innerHTML = ''; 
-
+    display.innerHTML = ""; 
     for (const track of musicLibrary) {
         if (track.album.toLowerCase().includes(query)) {
             renderCard(track);
@@ -463,3 +468,8 @@ document.getElementById('searchBtn').onclick = () => {
 document.getElementById('clearBtn').onclick = () => {
     display.innerHTML = '';
 };
+
+
+
+
+
