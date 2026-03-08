@@ -1,0 +1,21 @@
+{
+  "name": "kyrsova1",
+  "version": "1.0.0",
+  "description": "Конструктор \"Your BTS Playlist Creator\" Проєкт, що імітує функціонал Spotify.",
+  "main": "playlist.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anya-denisova-im-53/kyrsova1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/anya-denisova-im-53/kyrsova1/issues"
+  },
+  "homepage": "https://github.com/anya-denisova-im-53/kyrsova1#readme"
+}
