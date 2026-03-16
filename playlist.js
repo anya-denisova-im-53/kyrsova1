@@ -381,3 +381,38 @@ const btsData = [
 ]},
 
 ];
+
+
+
+const searchTracksv = (query) => {
+    console.log(`%c [Searching...] There is a real search for: ${query}`, 'color: #e67e22');
+    const results = [];
+
+    for (const track of musicLibrary) {
+        const queryLower = query.toLowerCase();
+        if (
+            track.album.toLowerCase().includes(queryLower)  || 
+            track.title.toLowerCase().includes(queryLower)  ||
+            track.artistName.toLowerCase().includes(queryLower) 
+        ) {
+            results.push(track);
+        }
+    }
+    return results;
+};
+           
+const memoizedSearch = memoize(searchTracksv, 10);
+document.getElementById("searchBtn").onclick = () => {
+    const query = document.getElementById("searchInput").value.trim();
+    if (!query) return;
+
+    display.innerHTML = ""; 
+    
+    const foundTracks = memoizedSearch(query);
+
+    if (foundTracks.length === 0) {
+        display.innerHTML = "<p style='color: white;'>No tracks found.</p>";
+    } else {
+        foundTracks.forEach(track => renderCard(track));
+    }
+};   
