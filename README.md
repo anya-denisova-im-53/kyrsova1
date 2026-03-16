@@ -9,11 +9,8 @@ console.log(radio.next().value);
 // Example of Timeout
 consumeWithTimeout(radio, 5);
 
-// Wrap the search function
-const fastSearch = memoize(searchTracks, 5);
+// Search results for "Golden" will be cached after the first call
+const search = memoize(searchTracksv, 5);
 
-// First call: Performs actual iteration
-fastSearch("Love Yourself"); 
-
-// Second call: Returns result instantly from cache
-fastSearch("Love Yourself");
+search("Golden"); // Logs: [Searching...]
+search("Golden"); // Logs: [Cache Hit] (Instant result)
