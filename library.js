@@ -45,7 +45,7 @@ function* smartMixer() {
     }
 } 
 
-const radio = smartMixer(btsData);
+const radio = smartMixer();
 const display = document.getElementById("playlistDisplay");
 
 async function consumeWithTimeout(iterator, durationInSeconds) {
@@ -106,3 +106,29 @@ document.getElementById('searchBtn').onclick = () => {
 document.getElementById('clearBtn').onclick = () => {
     display.innerHTML = '';
 };
+
+
+function memoize(fn, limit = 10) {
+    const cache = new Map();
+
+    return function(...args) {
+        const key = JSON.stringify(args);
+
+        if (cache.has(key)) {
+            console.log(` %c [Cache Hit] to request: ${key}` , 'color: #8e44ed; font-weight: bold;');
+            return cache.get(key);
+        }
+            
+            const result = fn.apply(this, args);
+
+            if (cache.size >= limit) {
+                const firstKey = cache.keys().next().value;
+                cache.delete(firstKey);
+                console.log (`[Cache Eviction] removed : ${firstKey} from cache `, 'color: #e74c3c; font-weight: bold;');
+            }
+
+            cache.set(key, result);
+            return result;
+        };
+    }
+
