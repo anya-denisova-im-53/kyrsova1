@@ -136,7 +136,6 @@ function memoize(fn, limit = 10) {
 
 
 
-
 class BiPriorityQueue {
     constructor() {
         this.nodes = [];
@@ -152,5 +151,36 @@ class BiPriorityQueue {
         this.nodes.push(node);
         console.log(`[Queue] Added:"${item.title}" | Priority ${priority}`);
     }
+
+
+_getTargetIndex(type) {
+    if (this.nodes.length === 0) return -1;
+
+    let targetIndex = 0;
+    for (let i = 1; i < this.nodes.length; i++) {
+        const current = this.nodes[i];
+        const target = this.nodes[targetIndex];
+
+        let isBetter = false;
+        switch (type) {
+            case 'highest':
+                isBetter = current.priority > target.priority || (current.priority === target.priority && current.id < target.id);
+                break;
+            case 'lowest':
+                isBetter = current.priority < target.priority || (current.priority === target.priority && current.id < target.id);
+                break;
+            case 'oldest':
+                isBetter = current.id < target.id;
+                break;
+            case 'newest':
+                isBetter = current.id > target.id;
+                break;
+        }
+        if (isBetter) {
+            targetIndex = i;
+        }
+    }
+        return targetIndex;
 }
 
+}
