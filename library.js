@@ -132,3 +132,20 @@ function memoize(fn, limit = 10) {
         };
     }
 
+class BiPriorityQueue {
+    constructor() {
+        this.nodes = [];
+        this.counter = 0;
+    }
+
+    enqueue(item, priority) {
+        const node = { 
+            item,
+            priority,
+            id: this.counter++
+        };
+        this.nodes.push(node);
+        console.log(`[Queue] Added:"${item.title}" | Priority ${priority}`);
+    }
+}
+
