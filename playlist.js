@@ -138,6 +138,8 @@ const btsData = [
             {title : "Heartbeat", releaseDate: "2019-11-18", album: "Wings"},
             {title : "Sea", releaseDate: "2019-11-18", album: "Wings"},
             {title : "TOO MUCH", releaseDate: "2023-10-20", album: "Wings"},
+            {title : "Body to Body", releaseDate: "2026-03-20", album: "ARIRANG"},
+
 
     ]
         
