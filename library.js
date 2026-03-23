@@ -92,6 +92,7 @@ document.getElementById('surpriseBtn').onclick = () => {
     renderCard(nextSong);
 };
 
+
 document.getElementById('searchBtn').onclick = () => {
     const query = document.getElementById('searchInput').value.toLowerCase();
     if (!query) return;
@@ -106,6 +107,7 @@ document.getElementById('searchBtn').onclick = () => {
 document.getElementById('clearBtn').onclick = () => {
     display.innerHTML = '';
 };
+
 
 
 function memoize(fn, limit = 10) {
@@ -130,5 +132,8 @@ function memoize(fn, limit = 10) {
             cache.set(key, result);
             return result;
         };
-    }
+    };
+
+
+
 
