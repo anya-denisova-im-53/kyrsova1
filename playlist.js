@@ -138,6 +138,20 @@ const btsData = [
             {title : "Heartbeat", releaseDate: "2019-11-18", album: "Wings"},
             {title : "Sea", releaseDate: "2019-11-18", album: "Wings"},
             {title : "TOO MUCH", releaseDate: "2023-10-20", album: "Wings"},
+            {title : "Body to Body", releaseDate: "2026-03-20", album: "ARIRANG"},
+            {title : "Hooligan", releaseDate: "2026-03-20", album: "ARIRANG"},
+            {title : "Aliens", releaseDate: "2026-03-20", album: "ARIRANG"},
+            {title : "FYA", releaseDate: "2026-03-20", album: "ARIRANG"},
+            {title : "2.0", releaseDate: "2026-03-20", album: "ARIRANG"},
+            {title : "No.29", releaseDate: "2026-03-20", album: "ARIRANG"},
+            {title : "SWIM", releaseDate: "2026-03-20", album: "ARIRANG"},
+            {title : "Merry Go Round", releaseDate: "2026-03-20", album: "ARIRANG"},
+            {title : "NORMAL", releaseDate: "2026-03-20", album: "ARIRANG"},
+            {title : "Like Animals", releaseDate: "2026-03-20", album: "ARIRANG"},
+            {title : "they don`t know `bout us", releaseDate: "2026-03-20", album: "ARIRANG"},
+            {title : "One More Night", releaseDate: "2026-03-20", album: "ARIRANG"},
+            {title : "Please", releaseDate: "2026-03-20", album: "ARIRANG"},
+            {title : "Into the Sun", releaseDate: "2026-03-20", album: "ARIRANG"},
 
     ]
         
