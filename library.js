@@ -183,7 +183,20 @@ _getTargetIndex(type) {
         return targetIndex;
 }
 
+dequeue(type = 'highest') {
+    const index = this._getTargetIndex(type);
+    if (index === -1)
+        return null;
+    const removedNode = this.nodes.splice(index, 1)[0];
+    return removedNode.item;
+} 
 
+peek(type = 'highest') {
+    const index = this._getTargetIndex(type);
+    return index === -1 ? null : this.nodes[index].item;
+}
 
-
+get size() {
+    return this.nodes.length;
+}
 }
