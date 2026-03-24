@@ -190,3 +190,4 @@ dequeue(type = 'highest') {
     const removedNode = this.nodes.splice(index, 1)[0];
     return removedNode.item;
 } 
+}

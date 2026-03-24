@@ -33,6 +33,17 @@
     <script src="playlist.js"></script>
 </body>
 <footer>
-    <p>&copy; 2026 Your BTS Playlist Creator. All rights reserved.</p>      
+    <p>&copy; 2026 Your BTS Playlist Creator. All rights reserved.</p>  
+  <div class="queue-controls" style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 10px;">
+    <h3 style="color: white;">Queue Management (Task 4)</h3>
+    <div class="buttons">
+        <button onclick="handleDequeue('highest')" style="background: #9b59b6;">Play Highest Priority</button>
+        <button onclick="handleDequeue('lowest')" style="background: #3498db;">Play Lowest Priority</button>
+        <button onclick="handleDequeue('oldest')" style="background: #27ae60;">Play Oldest (FIFO)</button>
+        <button onclick="handleDequeue('newest')" style="background: #e67e22;">Play Newest (LIFO)</button>
+    </div>
+    <p id="queueStatus" style="color: #bdc3c7; margin-top: 10px;">Queue is empty. Add songs from search!</p>
+</div>  
 </footer>
 </html>
+
