@@ -92,6 +92,7 @@ document.getElementById('surpriseBtn').onclick = () => {
     renderCard(nextSong);
 };
 
+
 document.getElementById('searchBtn').onclick = () => {
     const query = document.getElementById('searchInput').value.toLowerCase();
     if (!query) return;
@@ -106,6 +107,7 @@ document.getElementById('searchBtn').onclick = () => {
 document.getElementById('clearBtn').onclick = () => {
     display.innerHTML = '';
 };
+
 
 
 function memoize(fn, limit = 10) {
@@ -130,7 +132,9 @@ function memoize(fn, limit = 10) {
             cache.set(key, result);
             return result;
         };
-    }
+    };
+
+
 
 class BiPriorityQueue {
     constructor() {
@@ -147,6 +151,42 @@ class BiPriorityQueue {
         this.nodes.push(node);
         console.log(`[Queue] Added:"${item.title}" | Priority ${priority}`);
     }
+
+
+_getTargetIndex(type) {
+    if (this.nodes.length === 0) return -1;
+
+    let targetIndex = 0;
+    for (let i = 1; i < this.nodes.length; i++) {
+        const current = this.nodes[i];
+        const target = this.nodes[targetIndex];
+
+        let isBetter = false;
+        switch (type) {
+            case 'highest':
+                isBetter = current.priority > target.priority || (current.priority === target.priority && current.id < target.id);
+                break;
+            case 'lowest':
+                isBetter = current.priority < target.priority || (current.priority === target.priority && current.id < target.id);
+                break;
+            case 'oldest':
+                isBetter = current.id < target.id;
+                break;
+            case 'newest':
+                isBetter = current.id > target.id;
+                break;
+        }
+        if (isBetter) {
+            targetIndex = i;
+        }
+    }
+        return targetIndex;
 }
 
-dequeue()
+dequeue(type = 'highest') {
+    const index = this._getTargetIndex(type);
+    if (index === -1)
+        return null;
+    const removedNode = this.nodes.splice(index, 1)[0];
+    return removedNode.item;
+} 
