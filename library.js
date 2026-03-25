@@ -170,6 +170,7 @@ dequeue(type = 'highest') {
     return removedNode.item;
 } 
 
+
 peek(type = 'highest') {
     const index = this._getTargetIndex(type);
     return index === -1 ? null : this.nodes[index].item;
