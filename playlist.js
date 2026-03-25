@@ -475,5 +475,18 @@ console.log("Peek Newest (LIFO):", btsQueue.peek('newest').title);
     console.error("Error occurred while peeking into the queue:", error);
 }
 
+function handleDequeue(type) {
+    const track = btsQueue.dequeue(type);
+    
+    if (track && typeof display !== 'undefined') {
+        display.innerHTML = <h2 style="color: #9b59b6;">Now Playing from Queue (${type}):</h2>;
+        renderCard(track);
 
-
+        const statusEl = document.getElementById('queueStatus');
+        if (statusEl) {
+            statusEl.innerText = `Tracks in queue: ${btsQueue.size}`;
+        }
+    } else if (!track) {
+        alert("Queue is empty! Add some songs first.");
+    }
+}
