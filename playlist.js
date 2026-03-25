@@ -365,7 +365,7 @@ const btsData = [
         {title : "Be Mine", releaseDate: "2024-07-19", album: "Muse"},
         {title : "Slow Dance(feat. Sofia Carson)", releaseDate: "2024-07-19", album: "Muse"},
         {title : "Rebirth", releaseDate: "2024-07-19", album: "Muse"},
-        {ttile : "Intrlude: Snowtime", releaseDate: "2024-07-19", album: "Muse"},
+        {title : "Interlude: Snowtime", releaseDate: "2024-07-19", album: "Muse"},
         {title : "Tony Montana (feat. SUGA)", releaseDate: "2024-07-19", album: "Muse"},
         {title : "Promise", releaseDate: "2024-07-19", album: "Muse"},
         {title : "Christmas Love", releaseDate: "2015-09-03", album: "JIMIN"},
@@ -397,13 +397,38 @@ const btsData = [
 ];
 
 
+function renderCard(song) {
+    const card = document.createElement("div");
+    card.className = "song-card";
+
+    const badgeClass = song.type === "Group" ? "badge-group" : "badge-solo";
+
+    card.innerHTML = `
+    <span class ="badge"${badgeClass}>${song.type}</span>
+    <h3>${song.title}</h3>
+    <p><strong>Artist:</strong> ${song.artistName}</p>
+    <p><strong>Album:</strong> ${song.album}</p>
+    <p><strong>Release Date:</strong> ${song.releaseDate}</p>
+    `;
+    if(typeof display !== 'undefined'){
+        display.prepend(card);
+    }
+}
+
+const btsQueue = new BiPriorityQueue();
+
+document.getElementById('surpriseBtn').onclick = () => {
+    const nextSong = radio.next().value;
+    renderCard(nextSong);
+};
+
+
 
 const searchTracksv = (query) => {
     console.log(`%c [Searching...] There is a real search for: ${query}`, 'color: #e67e22');
     const results = [];
 
     for (const track of musicLibrary) {
-        const queryLower = query.toLowerCase();
         if (
             track.album.toLowerCase().includes(queryLower)  || 
             track.title.toLowerCase().includes(queryLower)  ||
@@ -416,17 +441,39 @@ const searchTracksv = (query) => {
 };
            
 const memoizedSearch = memoize(searchTracksv, 10);
+
 document.getElementById("searchBtn").onclick = () => {
     const query = document.getElementById("searchInput").value.trim();
     if (!query) return;
 
-    display.innerHTML = ""; 
-    
-    const foundTracks = memoizedSearch(query);
+    if(typeof display !== 'undefined'){
+        display.innerHTML = "";
+        const foundTracks = memoizedSearch(query);
 
-    if (foundTracks.length === 0) {
-        display.innerHTML = "<p style='color: white;'>No tracks found.</p>";
-    } else {
-        foundTracks.forEach(track => renderCard(track));
+        if (foundTracks.length === 0) {
+            display.innerHTML = "<p style='color: white;'>No tracks found.</p>";
+        } else {
+            foundTracks.forEach(track => renderCard(track));
+        }
     }
-};   
+}; 
+
+
+if (typeof btsData !== 'undefined' && btsData.length >= 2) {
+btsQueue.enqueue(btsData[0].songs[0], 5);
+btsQueue.enqueue(btsData[0].songs[1], 10);
+btsQueue.enqueue(btsData[1].songs[0], 1);
+}
+
+console.log("Queue Status");
+try {
+console.log("Peek Highest:", btsQueue.peek('highest').title); 
+console.log("Peek Lowest:", btsQueue.peek('lowest').title);   
+console.log("Peek Oldest (FIFO):", btsQueue.peek('oldest').title); 
+console.log("Peek Newest (LIFO):", btsQueue.peek('newest').title); 
+} catch (error) {
+    console.error("Error occurred while peeking into the queue:", error);
+}
+
+
+

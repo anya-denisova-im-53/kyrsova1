@@ -72,27 +72,6 @@ async function consumeWithTimeout(iterator, durationInSeconds) {
 }
 
 
-function renderCard(song) {
-    const card = document.createElement("div");
-    card.className = "song-card";
-    const badgeClass = song.type === "Group" ? "badge-group" : "badge-solo";
-
-    card.innerHTML = `
-    <span class ="badge"${badgeClass}>${song.type}</span>
-    <h3>${song.title}</h3>
-    <p><strong>Artist:</strong> ${song.artistName}</p>
-    <p><strong>Album:</strong> ${song.album}</p>
-    <p><strong>Release Date:</strong> ${song.releaseDate}</p>
-    `;
-    display.prepend(card);
-}
-
-document.getElementById('surpriseBtn').onclick = () => {
-    const nextSong = radio.next().value;
-    renderCard(nextSong);
-};
-
-
 document.getElementById('searchBtn').onclick = () => {
     const query = document.getElementById('searchInput').value.toLowerCase();
     if (!query) return;
