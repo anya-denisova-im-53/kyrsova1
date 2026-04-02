@@ -180,3 +180,24 @@ get size() {
     return this.nodes.length;
 }
 }
+
+
+const filterAsyncCallback = (array, predicate, finalCallback) => {
+    const results = [];
+    let completed = 0;
+
+    if (array.length === 0) return finalCallback([]);
+
+    array.forEach((item, index) => {
+        predicate(item, (isPassed) => {
+            if (isPassed) {
+                results[index] = item;
+            }
+            completed++;
+            
+            if (completed === array.length) {
+                finalCallback(results.filter(el => el !== undefined));
+            }
+        });
+    });
+};
