@@ -194,7 +194,7 @@ const filterAsyncCallback = (array, predicate, finalCallback) => {
                 results[index] = item;
             }
             completed++;
-            
+
             if (completed === array.length) {
                 finalCallback(results.filter(el => el !== undefined));
             }
@@ -203,22 +203,3 @@ const filterAsyncCallback = (array, predicate, finalCallback) => {
 };
 
 
-const filterAsyncPromise = (array, predicate, signal) => {
-    return new Promise((resolve, reject) => {
-        if (signal?.aborted) {
-            return reject(new Error('Operation aborted'));
-        }
-
-        const promises = array.map(async (item) => {
-            if (signal?.aborted) throw new Error('Operation aborted');
-            const result = await predicate(item);
-            return result ? item : null;
-        });
-
-        Promise.all(promises)
-            .then(results => resolve(results.filter(item => item !== null)))
-            .catch(reject);
-
-       signal?.addEventListener('abort', () => reject(new Error('Operation aborted')));
-    });
-};
