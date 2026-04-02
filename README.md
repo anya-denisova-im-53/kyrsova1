@@ -14,3 +14,16 @@ const search = memoize(searchTracksv, 5);
 
 search("Golden"); // Logs: [Searching...]
 search("Golden"); // Logs: [Cache Hit] (Instant result)
+
+// Initializing the queue
+const btsQueue = new BiPriorityQueue();
+
+// Adding tracks with different priority levels
+btsQueue.enqueue(songData, 10); // High priority
+btsQueue.enqueue(anotherSong, 1); // Low priority
+
+// Dequeuing based on specific requirements
+const nextToPlay = btsQueue.dequeue('highest'); 
+console.log(Now playing: ${nextToPlay.title});
+
+
