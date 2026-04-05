@@ -504,4 +504,13 @@ const runTask5Demo = async () => {
     } catch (err) {
         console.log(err.message);
     }
+
+
+    filterAsyncCallback(musicLibrary, (track, callback) => {
+        setTimeout(() => {
+            callback(track.priority >= 8);
+        }, 500);
+    }, (results) => {
+        console.log(" Callback-based Result (Priority >= 8):", results);
+    });
 };
