@@ -490,3 +490,18 @@ function handleDequeue(type) {
         alert("Queue is empty! Add some songs first.");
     }
 }
+
+
+const runTask5Demo = async () => {
+    console.log ("%c ---Task 5: Async Filter Demo ---", "color: #9b59b6;", "font-weight: bold;");
+
+    try {
+        const highPriorityTracks = await filterAsyncPromise(musicLibrary, async (track) => {
+            await new Promise(resolve => setTimeout(resolve, 500));
+            return track.priority >= 8;
+        });
+        console.log(" Promise-based Result (Prority >= 8):", highPriorityTracks);
+    } catch (err) {
+        console.log(err.message);
+    }
+};
