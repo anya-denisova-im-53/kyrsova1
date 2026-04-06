@@ -513,4 +513,17 @@ const runTask5Demo = async () => {
     }, (results) => {
         console.log(" Callback-based Result (Priority >= 8):", results);
     });
+
+    const controller = new AbortController();
+    const abortableSearch = filterAsyncPromise(musicLibrary, async (track) => {
+        await new Promise(resolve => setTimeout(resolve, 500));
+        return true;
+    }, controller.signal);
+
+    controller.abort();
+    abortableSearch.then(error => 
+        console.log("Abortable Search Result:", error.message)
+    );
 };
+
+//runTask5Demo();
