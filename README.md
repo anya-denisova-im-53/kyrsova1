@@ -27,7 +27,7 @@ const nextToPlay = btsQueue.dequeue('highest');
 console.log(Now playing: ${nextToPlay.title});
 
 //Async Array Function Variants
-This task focuses on transforming synchronous array operations into asynchronous ones to handle non-blocking data processing.
+
 
 * **Callback Version**: Implements a manual counter to track the completion of asynchronous tasks across the array.
 * **Promise Version**: Utilizes `Promise.all()` for concurrent execution, significantly improving performance.
