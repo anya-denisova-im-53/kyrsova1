@@ -203,3 +203,24 @@ const filterAsyncCallback = (array, predicate, finalCallback) => {
 };
 
 
+
+class LargeMusicStream{
+    constructor(data, chunkSize = 2) {
+        this.data = data;
+        this.chunkSize = chunkSize;
+}
+
+async *[Symbol.asyncIterator]() {
+    let index = 0;
+    while (index < this.data.length) {
+        await new Promise(resolve => setTimeout(resolve, 500));
+
+        const chunk = this.data.slice (index, index + this.chunkSize);
+        console.log(`%c [Stream] Processing chunk starting at index ${index}`, 'color: #27ae60; font-weight: bold;');
+
+        yield chunk;
+        index += this.chunkSize;
+    }
+  }
+}
+
