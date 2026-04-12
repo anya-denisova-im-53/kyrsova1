@@ -527,3 +527,30 @@ const runTask5Demo = async () => {
 };
 
 //runTask5Demo();
+const runTask6Demo = async() => {
+    console.log("%c ---Task 6: Stream Processing Demo---", "color: #2ecc71;", "font-weight: bold;");
+
+    const musicStream = new LargeMusicStream(musicLibrary,3);
+    try {
+        let totalProcessed = 0;
+        for await (const chunk of musicStream) {
+            chunk.forEach(track => {
+               console.log(`Processed: ${track.title} by ${track.artistName}`);
+               renderCard(track);
+            });
+
+            totalProcessed += chunk.length;
+            console.log(`%c Progress: ${totalProcessed}/${musicLibrary.length} tracks processed.`, "color: #f1c40f");
+        }
+
+        console.log("%c Stream processing complete!", "color: #2ecc71;", "font-weight: bold;");
+    } catch (error) {
+        console.error("Stream error:", error);
+    }
+};
+
+
+if (document.getElementById("runTask6Btn")) {
+    document.getElementById("runTask6Btn").onclick = runTask6Demo;
+}
+
