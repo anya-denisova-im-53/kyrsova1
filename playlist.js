@@ -554,3 +554,28 @@ if (document.getElementById("runTask6Btn")) {
     document.getElementById("runTask6Btn").onclick = runTask6Demo;
 }
 
+
+const musicPlayer = new EventEmitter();
+
+const runTask7Demo = () => {
+    console.log("%c --- Task 7: Reactive Communication Demo --- ", "color: #e67e22; font-weight: bold;");
+
+    const uiUnsubscribe = musicPlayer.on('trackChanged', (track) => {
+        console.log(`[UI Interface] 📱 Now displaying info for: ${track.title}`);
+    });
+
+    musicPlayer.on('trackChanged', (track) => {
+        console.log(`[Analytics] 📊 User started listening to: ${track.title} by ${track.artistName}`);
+    });
+
+    const sampleTrack = musicLibrary[0];
+    console.log("... Simulating track change ...");
+    musicPlayer.emit('trackChanged', sampleTrack);
+
+    console.log("... Unsubscribing UI listener ...");
+    uiUnsubscribe();
+
+    console.log("... Simulating next track change ...");
+    musicPlayer.emit('trackChanged', musicLibrary[1]); 
+};
+
