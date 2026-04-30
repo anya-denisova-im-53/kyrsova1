@@ -248,3 +248,42 @@ emit (eventName, data) {
     this.events[eventName].forEach(callback => callback(data));
 }
 }
+
+class AuthProxy {
+    constructor(apiService, credentials) {
+        this.apiService = apiService;
+        this.credentials = credentials; 
+    }
+
+
+    async request(endpoint, options = {}) {
+        console.log('%c [Proxy] Intercepting request to: ${endpoint}', 'color: #8e44ad');
+
+        const authHeader = this._getAuthHeader();
+        const secureOptions = {
+            ...options,
+            headers: {
+                ...options.headers,
+                'Authorization': authHeader,
+                'X-Timestamp': new Date().toISOString()
+            }
+        };
+
+console.log('%c [Proxy] Injecting credentials (${this.credentials.type})', 'color: #8e44ad; font-style: italic;');
+ try {
+            const response = await this.apiService.fetchData(endpoint, secureOptions);
+            return response;
+        } catch (error) {
+            console.error("[Proxy] Request failed:", error.message);
+            throw error;
+        }
+    }
+   _getAuthHeader() {
+        switch (this.credentials.type) {
+            case 'JWT': return 'Bearer ${this.credentials.token}';
+            case 'API Key': return 'ApiKey ${this.credentials.token}';
+            default: return this.credentials.token;
+        }
+    }
+}
+
