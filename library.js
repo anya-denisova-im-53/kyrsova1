@@ -271,7 +271,7 @@ class AuthProxy {
 
 console.log('%c [Proxy] Injecting credentials (${this.credentials.type})', 'color: #8e44ad; font-style: italic;');
  try {
-            const response = await this.apiService.fetchData(endpoint, secureOptions);
+         const response = await this.apiService.fetchData(endpoint, secureOptions);
             return response;
         } catch (error) {
             console.error("[Proxy] Request failed:", error.message);
@@ -285,5 +285,28 @@ console.log('%c [Proxy] Injecting credentials (${this.credentials.type})', 'colo
             default: return this.credentials.token;
         }
     }
+
+
+_getAuthHeader() {
+    switch (this.credentials.type) {
+        case 'JWT':
+            return `Bearer ${this.credentials.token}`;
+        case 'API Key':
+            return `ApiKey ${this.credentials.token}`;
+        default:
+            return this.credentials.token;
+    }
 }
+}
+
+const mockApiService = {
+    fetchData: async (endpoint, options) => {
+        if (!options.headers || !options.headers['Authorization']) {
+            throw new Error('Unauthorized: Missing credentials');
+        }  
+
+        await new Promise(resolve => setTimeout(resolve, 500));
+        return { status: 200, data: `Data from  ${endpoint} received safely` };
+    }
+};
 
