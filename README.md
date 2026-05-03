@@ -48,3 +48,26 @@ const musicStream = new LargeMusicStream(hugeDataset);
 for await (const chunk of musicStream) {
     renderCards(chunk); // Process and display one batch at a time
 }
+
+#### **Task 7: Reactive Communication with EventEmitter**
+Implemented a reactive message-based communication system to allow different entities to interact independently.
+
+* **Pattern**: Built using the **Observer Pattern** (EventEmitter), supporting high decoupling between logic and UI.
+* **Features**:
+    * **Independent Listeners**: Multiple entities (e.g., UI updates, Analytics, Logger) can react to the same event simultaneously.
+    * **Subscribe/Unsubscribe**: Full support for adding and removing listeners to prevent memory leaks.
+* **Example Case**:
+    When the "current track" changes, the `EventEmitter` broadcasts a message. The UI updates the song title, while the Analytics module logs the play event — both acting independently.
+
+    #### **Task 8: Authentication Proxy Implementation**
+Developed a security proxy layer that acts as an intermediary between the client and the API service.
+
+* **Pattern**: **Proxy Pattern**. It wraps HTTP-like requests to intercept and modify them before they reach the service.
+* **Security Features**:
+    * **Credential Injection**: Automatically injects Bearer tokens (JWT) or API Keys into request headers.
+    * **Logging & Monitoring**: Every outgoing request is logged with metadata (timestamps, endpoint info) for auditing.
+* **Flexibility**: Supports dynamic switching between different authentication strategies (OAuth, API Key, JWT) by modifying the internal configuration without changing the application logic.
+
+**Code Example:**
+const secureProxy = new AuthProxy(api, { type: 'JWT', token: '...' });
+const data = await secureProxy.request('/user/profile'); // Headers injected automatically!

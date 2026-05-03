@@ -579,3 +579,22 @@ const runTask7Demo = () => {
     musicPlayer.emit('trackChanged', musicLibrary[1]); 
 };
 
+
+
+const runTask8Demo = () => {
+    console.log("%c --- Task 8: Auth Proxy Demo ---", "color: #9b59b6; font-weight: bold;");
+
+
+    const proxy = new AuthProxy(mockAPIService,{
+        token : "v-taehyung-focus-2026",
+        type: 'JWT'
+    }); 
+
+    try {
+        const result =await proxy.request('/api/v1/exclusive-content');
+        console.log("%c [App] Server Response:", "color: #27ae60", result);
+    } catch (err) {
+        console.error("Access denied!");
+    }
+};
+    
