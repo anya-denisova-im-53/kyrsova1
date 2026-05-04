@@ -310,3 +310,35 @@ const mockApiService = {
     }
 };
 
+
+
+/**
+ * @param {Function} fn 
+ * @param {Object} config 
+ */
+const withLogging = (fn, config = { level: 'INFO', format: 'text' }) => {
+    return async function (...args) {
+        const timestamp = new Date().toISOString();
+        const functionName = fn.name || 'anonymous';
+
+        if (config.level !== 'ERROR') {
+            const inputLog = `[${timestamp}] [${config.level}] Calling ${functionName} with:`;
+            console.log(inputLog, args);
+        }
+
+        try {
+            const start = performance.now();
+            const result = await Promise.resolve(fn.apply(this, args));
+            const duration = (performance.now() - start).toFixed(2);
+
+            if (config.level === 'DEBUG' || config.level === 'INFO') {
+                console.log(`%c[${timestamp}] [${config.level}] ${functionName} returned in ${duration}ms:`, "color: #27ae60", result);
+            }
+
+            return result;
+        } catch (error) {
+            console.error(`%c[${timestamp}] [ERROR] ${functionName} failed:`, "color: #e74c3c", error.message);
+            throw error;
+        }
+    }; 
+};
