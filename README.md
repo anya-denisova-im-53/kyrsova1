@@ -71,3 +71,17 @@ Developed a security proxy layer that acts as an intermediary between the client
 **Code Example:**
 const secureProxy = new AuthProxy(api, { type: 'JWT', token: '...' });
 const data = await secureProxy.request('/user/profile'); // Headers injected automatically!
+
+#### **Task 9: Configurable Logging Decorator**
+Implemented a higher-order function decorator to provide transparent logging and monitoring for any function in the system.
+
+* **Features**:
+    * **Configurable Log Levels**: Supports `INFO`, `DEBUG`, and `ERROR` levels to filter the amount of output.
+    * **Universal Support**: Seamlessly wraps both synchronous and asynchronous (Promise-based) functions.
+    * **Execution Profiling**: Automatically calculates and logs the execution time of the wrapped function in milliseconds.
+    * **Input/Output Audit**: Logs all incoming arguments and return values with accurate timestamps.
+* **Structured Output**: Supports styled console output to distinguish between different types of system events.
+
+**Example Usage:**
+const loggedSearch = withLogging(searchFunction, { level: 'DEBUG' });
+const results = await loggedSearch('BTS'); // Triggers automatic I/O logging
