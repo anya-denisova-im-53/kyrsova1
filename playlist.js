@@ -597,4 +597,24 @@ const runTask8Demo = () => {
         console.error("Access denied!");
     }
 };
+
+
+const runTask9Demo = async () => {
+    console.log("%c --- Task 9: Logging Decorator Demo --- ", "color: #34495e; font-weight: bold;");
     
+    const searchWithLogs = withLogging(function findSongs(query) {
+        return musicLibrary.filter(t => t.title.toLowerCase().includes(query.toLowerCase()));
+    }, { level: 'DEBUG' });
+
+ await searchWithLogs('Into');
+
+    const errorTask = withLogging(async function riskyOperation() {
+        throw new Error("Database connection timeout");
+    }, { level: 'ERROR' });
+
+    try {
+        await errorTask();
+    } catch (e) {
+    }
+};
+
