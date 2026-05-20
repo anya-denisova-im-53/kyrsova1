@@ -8,59 +8,82 @@
 </head>
 <body>
 
-    <header class="top-nav">
-        <div class="logo">BTS Playlist Creator</div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="spotify-layout">
+        <aside class="sidebar">
+            <div class="logo">BTS Playlist Creator</div>
+            <nav class="top-nav">
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
 
-    <div class="app-container">
-        <section class="hero-section">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Welcome to Your BTS Playlist Creator!</h1>
-                    <p>Discover your personalized BTS playlist based on your music preferences.</p>
-                    <div class="main-buttons">
-                        <button id="surpriseBtn">Surprise Me!</button>
-                        <button id="clearBtn">Clear</button>
+            <div class="auth-box">
+                <h4>Join the ARMY 💜</h4>
+                <p>Sign up to save your custom BTS playlists.</p>
+                <form id="authForm" onsubmit="event.preventDefault();">
+                    <div class="input-group">
+                        <input type="email" id="userEmail" placeholder="Email address" required>
                     </div>
-                </div>
-                <div class="hero-image">
-                    <img src="bts.jpg" alt="BTS">
+                    <div class="input-group">
+                        <input type="password" id="userPassword" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn-signup">Sign Up Free</button>
+                </form>
+                <div class="auth-footer">
+                    <span>Already have an account? <a href="#login">Log in</a></span>
                 </div>
             </div>
-        </section>
+        </aside>
 
-        <section class="queue-management">
-            <h3>Queue Management</h3>
-            <div class="queue-grid">
-                <button onclick="handleDequeue('highest')" class="btn-highest">Play Highest Priority</button>
-                <button onclick="handleDequeue('lowest')" class="btn-lowest">Play Lowest Priority</button>
-                <button onclick="handleDequeue('oldest')" class="btn-oldest">Play Oldest (FIFO)</button>
-                <button onclick="handleDequeue('newest')" class="btn-newest">Play Newest (LIFO)</button>
-            </div>
-            <p id="queueStatus">Queue is empty. Add songs from search!</p>
-            
-            <div class="task-extra">
-                <button id="runTask6Btn" class="btn-stream">Run Stream</button>
-            </div>
-        </section>
+        <main class="main-content">
+            <div class="app-container">
+                
+                <section class="hero-section">
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h1>Welcome to Your BTS Playlist Creator!</h1>
+                            <p>Discover your personalized BTS playlist based on your music preferences.</p>
+                            <div class="main-buttons">
+                                <button id="surpriseBtn">Surprise Me!</button>
+                                <button id="clearBtn">Clear</button>
+                            </div>
+                        </div>
+                        <div class="hero-image">
+                            <img src="bts.jpg" alt="BTS">
+                        </div>
+                    </div>
+                </section>
 
-        <section class="playlist-section">
-            <button class="create-btn" onclick="createPlaylist()">Create My Playlist</button>
-            <div id="playlistDisplay" class="playlist-grid">
-                </div>
-        </section>
+                <section class="queue-management">
+                    <h3>Queue Management</h3>
+                    <div class="queue-grid">
+                        <button onclick="handleDequeue('highest')" class="btn-highest">Play Highest Priority</button>
+                        <button onclick="handleDequeue('lowest')" class="btn-lowest">Play Lowest Priority</button>
+                        <button onclick="handleDequeue('oldest')" class="btn-oldest">Play Oldest (FIFO)</button>
+                        <button onclick="handleDequeue('newest')" class="btn-newest">Play Newest (LIFO)</button>
+                    </div>
+                    <p id="queueStatus">Queue is empty. Add songs from search!</p>
+                    
+                    <div class="task-extra">
+                        <button id="runTask6Btn" class="btn-stream">Run Stream</button>
+                    </div>
+                </section>
+
+                <section class="playlist-section">
+                    <button class="create-btn" onclick="createPlaylist()">Create My Playlist</button>
+                    <div id="playlistDisplay" class="playlist-grid">
+                        </div>
+                </section>
+
+                <footer>
+                    <p>&copy; 2026 Your BTS Playlist Creator. All rights reserved.</p>
+                </footer>
+
+            </div>
+        </main>
     </div>
-
-    <footer>
-        <p>&copy; 2026 Your BTS Playlist Creator. All rights reserved.</p>
-    </footer>
 
     <script src="library.js"></script>
     <script src="playlist.js"></script>
