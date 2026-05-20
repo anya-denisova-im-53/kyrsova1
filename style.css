@@ -361,12 +361,3 @@ html, body {
 .main-content::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.2);
 }
-
-footer {
-    width: 100%;
-    padding: 40px 0;
-    color: #727272;
-    font-size: 0.85rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    margin-top: 40px;
-}
